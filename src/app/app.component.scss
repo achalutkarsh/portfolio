@@ -1,0 +1,4 @@
+.scroll {
+    height: calc(var(--screen-ht) - var(--navbar-ht));
+    overflow-y: auto;
+}

@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="h-3x"></div>
+
+    <div class="section">
+        <label class="center l-h-3x">Focused IT professional with almost 2 years experience in front end
+            development. Worked
+            under high deadlines. Excellent track-record of creating and maintaining software solutions for existing
+            clients. Mainly proficient in Angular.
+        </label>
+    </div>
+
+    <div class="div-h-solid"></div>
+
+    <div class="section">
+        <h2> Skills </h2>
+        <div class="h-2x"></div>
+
+        <div class="center">
+            <div class="inl-blk">
+                <swiper [config]="config">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide ">
+                            <img src="assets/image/angular.png" alt="" class="image" >
+                        </div>
+                        <div class="swiper-slide ">
+                            <img src="assets/image/html5.png" alt="" class="image">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="assets/image/d3js.png" alt="" class="image">
+                        </div>
+                        <div class="swiper-slide ">
+                            <img src="assets/image/css.png" alt="" class="image">
+                        </div>
+                        <div class="swiper-slide ">
+                            <img src="assets/image/js.png" alt="" class="image">
+                        </div>
+                        <div class="swiper-slide ">
+                            <img src="assets/image/cordova.svg" alt="" class="image">
+                        </div>
+                        <div class="swiper-slide ">
+                            <img src="assets/image/git.png" alt="" class="image">
+                        </div>
+
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </swiper>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="div-h-solid"></div>
+
+    <div class="section">
+        <h2> Projects </h2>
+        <div class="h-2x"></div>
+
+        <!-- <div class="left card" *ngFor="let project of projects">
+
+            <h4>
+                {{ project.title }}
+            </h4>
+            <div class="h-2x"></div>
+
+            <label>
+                {{ project.description }}
+            </label>
+            <div class="h-x"></div>
+            <label>
+                {{ project.keys }}
+            </label>
+
+        </div> -->
+
+        <app-pie-chart [pieChartData]="projectData"></app-pie-chart>
+
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="div-h-solid"></div>
+
+    <div class="section">
+        <h2> Career </h2>
+        <div class="h-2x"></div>
+
+        <div class="left width-50-per">
+            <img src="assets/image/ndi.png" alt="ndi" class="full-image">
+        </div>
+
+
+        <div class="left vertical-align">
+            <h3>Nissan Digital India LLP</h3>
+            <h4> UI Developer : Jul 2019 - current </h4>
+            
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="div-h-solid"></div>
+
+    <div class="section">
+        <h2> Education </h2>
+        <div class="h-2x"></div>
+
+        <div class="left width-50-per">
+            <img src="assets/image/vit.png" alt="vit" class="full-image">
+        </div>
+
+        <div class="left vertical-align ">
+            <h3>Vellore Institute of Technology</h3>
+            <h4> B.Tech - CSE : 2015 - 2019</h4>
+
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+
+
+
+</div>

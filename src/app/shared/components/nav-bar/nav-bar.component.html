@@ -1,0 +1,39 @@
+<div class="container">
+
+    <label class="nav-card left">Home</label>
+    <label class="nav-card left">College</label>
+    <label class="nav-card left">Career</label>
+    <label class="nav-card left">Projects</label>
+
+
+    <label class="nav-card right">Contact</label>
+
+    <div class="right rel">
+        <img src="assets/image/paint.png" alt="color" (mouseenter)="showColorBox = true"
+        class="nav-card icon ">
+
+        
+        <div class="dialog" *ngIf="showColorBox" (mouseleave)="showColorBox = false">
+
+
+            <label (click)="updateBackground(dp.value)">
+                <input class="m-r-x" type="radio" #dp name="a" value = "#673ab7" [checked]="backgroundColor === dp.value"> Deep Purple
+            </label>
+            <div class="h-x"></div>
+            <label (click)="updateBackground(i.value)">
+                <input class="m-r-x" type type="radio" #i name="a" value = "#3f51b5" [checked]="backgroundColor === i.value"> Indigo
+            </label>
+            <div class="h-x"></div>
+            <label (click)="updateBackground(pi.value)">
+                <input class="m-r-x" type type="radio" #pi name="a" value = "#e91e63" [checked]="backgroundColor === pi.value"> Pink
+            </label>
+            <div class="h-x"></div>
+            <label (click)="updateBackground(pu.value)">
+                <input class="m-r-x" type type="radio" #pu name="a" value = "#9c27b0" [checked]="backgroundColor === pu.value"> Purple
+            </label>
+            
+        </div>
+    </div>
+    <div class="clear"></div>
+
+</div>
