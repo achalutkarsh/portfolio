@@ -1,8 +1,8 @@
 .container {
-    background-color: var(--background);
+    background-color: var(--background1);
     z-index: 2;
     padding: 8px 16px ;
-    box-shadow: 0 3px 5px -1px var(--background);
+    box-shadow: 0 3px 5px -1px var(--background1);
     // box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
 }
 
@@ -11,7 +11,7 @@
     color: var(--white);
     font-family: Roboto,Helvetica Neue,sans-serif;
     font-weight: 500;
-    border: 1px solid var(--background);
+    border: 1px solid var(--background1);
     border-radius: 4px;
 
 }
@@ -24,6 +24,7 @@
 .icon {
     height: 16px;
     width: auto;
+    margin-top: -2px;
 }
 
 .dialog{
@@ -31,15 +32,13 @@
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 150px;
+    width: 200px;
     padding: 16px;
-    background-color: var(--background);
-    opacity: 0.8;
+    background-color: var(--background2);
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
     border-radius: 4px;
 }
 
-
-.dialog label {
-    color: var(--white);
+.fc-white {
+    color: white
 }

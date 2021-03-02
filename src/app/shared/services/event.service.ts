@@ -11,10 +11,10 @@ export class EventService {
 
   private colorSubject = new Subject<string>()
 
-  sendFilterEvent(enabled): void {
+  sendDarkColorEvent(enabled): void {
     this.colorSubject.next(enabled)
   }
-  getFilterEvent(): Subject<string> {
+  getDarkColorEvent(): Subject<string> {
     return this.colorSubject
   }
 }

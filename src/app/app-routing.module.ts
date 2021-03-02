@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfessionalComponent } from './professional/professional.component';
+import { ErrorComponent } from './shared/error/error.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/professional' },
-  {path:'professional', component: ProfessionalComponent}
+  { path: 'professional', pathMatch: 'full', redirectTo: 'professional/home' },
+  {
+    path: 'professional',
+    loadChildren: () => import('./professional/professional.module').then(m => m.ProfessionalModule),
+  },
+  { path: '**', redirectTo: '/404' },
+  { path: '404', component: ErrorComponent },
+
 ];
 
 @NgModule({

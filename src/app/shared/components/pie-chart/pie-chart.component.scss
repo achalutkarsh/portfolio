@@ -8,6 +8,13 @@
 
 .card {
   width: 300px;
+  border: 1.5px solid var(--pieDataColor);
+  border-bottom: 4px;
+  box-shadow: 0px 2px 6px 0px var(--pieDataColor);
+}
+
+.card label {
+  color: var(--black2);
 }
 
 .width-50-per {

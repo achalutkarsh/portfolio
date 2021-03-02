@@ -1,39 +1,14 @@
-import { AfterContentChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterContentChecked, AfterViewInit {
+export class AppComponent implements OnInit {
 
-  style: any = null
+  constructor() { }
 
-  @ViewChild('navbarContainer') navbarContainer
+  ngOnInit(): void {}
 
-  title = 'achal';
-  navbarHeight: number;
-
-  constructor(
-    private sanitizer: DomSanitizer,
-  ) { }
-
-  ngOnInit() {
-
-  }
-
-  ngAfterViewInit(): void {
-    this.navbarHeight = 
-      this.navbarContainer.nativeElement.getBoundingClientRect().height 
-  }
-
-
-  ngAfterContentChecked(): void {
-    this.style = this.sanitizer.bypassSecurityTrustStyle(`
-      --screen-ht: ${document.documentElement.clientHeight}px;
-      --screen-width: ${document.documentElement.clientWidth}px;
-      --navbar-ht: ${this.navbarHeight}px;
-  `)
-  }
 }

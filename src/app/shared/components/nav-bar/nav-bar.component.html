@@ -1,23 +1,36 @@
 <div class="container">
 
-    <label class="nav-card left">Home</label>
-    <label class="nav-card left">College</label>
-    <label class="nav-card left">Career</label>
-    <label class="nav-card left">Projects</label>
+    <label (click)="navigateToHome()" class="nav-card left">Home</label>
+    <label (click)="navigateToProjects()" class="nav-card left">Projects</label>
+    <label (click)="navigateToCareer()" class="nav-card left">Career</label>
+    <label (click)="navigateToEducation()" class="nav-card left">Education</label>
 
 
-    <label class="nav-card right">Contact</label>
+    <label (click)="navigateToContact()" class="nav-card right">Contact</label>
+    <label (click)="navigateToAbout()" class="nav-card right">About This</label>
 
     <div class="right rel">
-        <img src="assets/image/paint.png" alt="color" (mouseenter)="showColorBox = true"
-        class="nav-card icon ">
-
-        
-        <div class="dialog" *ngIf="showColorBox" (mouseleave)="showColorBox = false">
+        <img src="assets/image/paint.png" alt="color" (mouseenter)="showColorBox = true" class="nav-card icon ">
 
 
-            <label (click)="updateBackground(dp.value)">
-                <input class="m-r-x" type="radio" #dp name="a" value = "#673ab7" [checked]="backgroundColor === dp.value"> Deep Purple
+        <div *ngIf="showColorBox" class="dialog" (mouseleave)="showColorBox = false">
+
+            <div *ngFor="let item of color; let i = index" (click)="updateBackground(item)">
+
+                <input class="m-r-x m-t-2 left" type="radio" id="category" [checked]="item.color1 === backgroundColor"
+                    [value]="item" />
+                <label class="left" [ngClass]="{
+                        'fc-white': backgroundColor === '#e91e63' || backgroundColor === '#9c27b0'  
+                      }">
+
+                    {{ item.name }}
+                </label>
+                <div class="clear"></div>
+                <div *ngIf = "i !== 3" class="h-2x"></div>
+            </div>
+
+            <!-- <label (click)="updateBackground(dp.value)">
+                <input class="m-r-x" type="radio" #dp name="a" value = color[0] [checked]="backgroundColor === dp.value.color1"> Deep Purple
             </label>
             <div class="h-x"></div>
             <label (click)="updateBackground(i.value)">
@@ -30,8 +43,8 @@
             <div class="h-x"></div>
             <label (click)="updateBackground(pu.value)">
                 <input class="m-r-x" type type="radio" #pu name="a" value = "#9c27b0" [checked]="backgroundColor === pu.value"> Purple
-            </label>
-            
+            </label> -->
+
         </div>
     </div>
     <div class="clear"></div>

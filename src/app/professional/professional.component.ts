@@ -1,121 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-import { SwiperOptions } from 'swiper';
-
+import { AfterContentChecked, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-professional',
   templateUrl: './professional.component.html',
   styleUrls: ['./professional.component.scss']
 })
-export class ProfessionalComponent implements OnInit {
-  data: any
-  projects: any
-  projectData: any
+export class ProfessionalComponent implements OnInit, AfterContentChecked, AfterViewInit {
 
-  config: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    initialSlide: 1,
-    slidesPerView: 3,
-    spaceBetween: 30
-  };
+  style: any = null
 
-  skills = [
-    'assets/image/ndi.png',
-    'assets/image/vit.png',
-    'assets/image/ndi.png'
-  ]
+  @ViewChild('navbarContainer') navbarContainer
+  @ViewChild('footerContainer') footerContainer
 
-  swiperConfig: SwiperOptions = {
-    spaceBetween: 0,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    initialSlide: 1,
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
+  title = 'achal';
+  navbarHeight: number;
+  footerHeight: number;
+
+  constructor(
+    private sanitizer: DomSanitizer,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    if(this.router.url === '/professional') {
+      this.router.navigate(['professional/home'])
+    }
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
-
-    this.data = [
-      {
-        title: 'ACHAL UTKARSH',
-        // synopsis: '',
-        // endNote: ''
-      },
-      {
-        title: 'UI-Developer',
-        // synopsis: 'checking new',
-        // endNote: 'new new new '
-      },
-    ]
-
-    this.projects = [
-      {
-        title: 'Sales App',
-        description: 'It helps to view global finances and performance metrics in the form of various bar & area charts for all Nissan vehicle segments with features to filter a/c to day, month, year, market & model.',
-        keys: 'Angular, Cordova, D3.js'
-      },
-      {
-        title: 'Feedback Library',
-        description: 'Imported over many applications around Nissan, hosted over their private repo, primarily to receive feedback & queries from the users.',
-        keys: 'Angular'
-      },
-      {
-        title: 'Small Events (Module)',
-        description: 'It allows users to create a new type of vehicle in the market or edit the existing one with a new model.',
-        keys: 'Angular, Slider, Timeline'
-      },
-      {
-        title: 'Product Planning Tool',
-        description: 'Timeline for modification of data, charts representing sales & volume across different markets and specific models with features to have different combination of model families.',
-        keys: 'Angular, D3.js'
-      },
-    ]
-
-    this.projectData = [
-      {
-        name: 'Sales App',
-        value: 25,
-        color: 'red',
-        description: 'It helps to view global finances and performance metrics in the form of various bar & area charts for all Nissan vehicle segments with features to filter a/c to day, month, year, market & model.',
-        keys: 'Angular, Cordova, D3.js',
-        timeline: ' Jul 2020 - active'
-      },
-      {
-        name: 'Feedback Library',
-        value: 25,
-        color: 'green',
-        description: 'Imported over many applications around Nissan, hosted over their private repo, primarily to receive feedback & queries from the users.',
-        keys: 'Angular',
-        timeline: 'Nov 2020 - active'
-      },
-      {
-        name: 'Small Events (Module)',
-        value: 25,
-        color: 'yellow',
-        description: 'It allows users to create a new type of vehicle in the market or edit the existing one with a new model.',
-        keys: 'Angular, Slider, Timeline',
-        timeline: 'Mar 2020 - Jul 2020'
-      },
-      {
-        name: 'Planning Tool',
-        value: 25,
-        color: 'blue',
-        description: 'Timeline for modification of data, charts representing sales & volume across different markets and specific models with features to have different combination of model families.',
-        keys: 'Angular, D3.js',
-        timeline: 'Aug 2019 - Jul 2020'
-      },
-    ]
-
+  ngAfterViewInit(): void {
+    this.navbarHeight =
+      this.navbarContainer.nativeElement.getBoundingClientRect().height
+    this.footerHeight =
+      this.footerContainer.nativeElement.getBoundingClientRect().height
   }
 
+
+  ngAfterContentChecked(): void {
+    this.style = this.sanitizer.bypassSecurityTrustStyle(`
+      --screen-ht: ${document.documentElement.clientHeight}px;
+      --screen-width: ${document.documentElement.clientWidth}px;
+      --navbar-ht: ${this.navbarHeight}px;
+      --footer-ht: ${this.footerHeight}px;
+  `)
+  }
 }
+
+
+

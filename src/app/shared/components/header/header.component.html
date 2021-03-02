@@ -1,8 +1,8 @@
 <div class="container">
 
-    <div *ngIf="type === 'home'" class="center">
+    <div [hidden]="type !== 'Home'" class="center">
         
-        <div class="h-3x"></div>
+        <div class="h-x"></div>
 
         <h1 class="head-text"> ACHAL UTKARSH</h1>
 
@@ -10,12 +10,9 @@
 
         <div class="h-2x"></div>
 
-        <button> Let's Start</button>
+        <button (click)="navigateToContact()"> Contact Details </button>
 
-        <div class="h-2x"></div>
+    </div>
 
-
-    </div>`
-
-    <h1 *ngIf="type !== 'home'"> {{ type }} </h1>
+    <h1 [hidden]="type === 'Home'"> {{ type }} </h1>
 </div>
