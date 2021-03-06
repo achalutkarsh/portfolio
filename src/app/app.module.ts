@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProfessionalModule } from './professional/professional.module';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
     ProfessionalModule,
     SharedModule,
     CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

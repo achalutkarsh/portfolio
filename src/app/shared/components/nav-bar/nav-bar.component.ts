@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CrudService } from '../../services/crud.service';
 import { EventService } from '../../services/event.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class NavBarComponent implements OnInit {
   showColorBox = false
   backgroundColor: string = '#673ab7'
 
+  visit = 15
 
   color = [
     {name: 'Deep Purple & Light',
@@ -38,9 +40,12 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private crudService: CrudService
   ) { }
 
   ngOnInit(): void {
+
+    this.updatePageCount()
   }
 
   updateBackground(value) {
@@ -73,6 +78,25 @@ export class NavBarComponent implements OnInit {
 
   navigateToAbout() {
     this.router.navigate(['professional/about'])
+  }
+
+  updatePageCount() {
+
+    const url = 'https://portfolio-bd9c.restdb.io/rest/visits'
+    this.crudService.getData(url, {}).then((res: any) => {
+      console.log("resp", res)
+
+      const mock = res
+
+      this.visit = mock[0].item + 1 
+
+      this.crudService.saveData(url, mock).subscribe(
+        (res: any) => {
+          console.log('success')
+        }
+      )
+    })
+
   }
 
 }
