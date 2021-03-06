@@ -45,7 +45,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.updatePageCount()
+    // this.updatePageCount()
   }
 
   updateBackground(value) {
@@ -89,6 +89,7 @@ export class NavBarComponent implements OnInit {
       const mock = res
 
       this.visit = mock[0].item + 1 
+      mock[0].item = this.visit
 
       this.crudService.saveData(url, mock).subscribe(
         (res: any) => {
